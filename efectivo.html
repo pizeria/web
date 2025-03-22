@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago en Efectivo</title>
+</head>
+<body>
+    <h1>Pago en Efectivo</h1>
+    <p><strong>Total a Pagar: </strong><span id="total"></span> $</p>
+    
+    <label for="efectivo">Efectivo Recibido: </label>
+    <input type="number" id="efectivo" name="efectivo" required><br><br>
+
+    <p><strong>Cambio: </strong><span id="cambio"></span></p>
+
+    <button onclick="pagar()">Pagar</button>
+
+    <script>
+        // Obtener el total almacenado en localStorage
+        let total = localStorage.getItem('total');
+        document.getElementById('total').textContent = total;
+
+        // Función para calcular el cambio
+        function pagar() {
+            let efectivo = parseFloat(document.getElementById('efectivo').value);
+
+            if (isNaN(efectivo) || efectivo < total) {
+                alert("Por favor ingresa una cantidad válida de efectivo.");
+                return;
+            }
+
+            let cambio = efectivo - total;
+            document.getElementById('cambio').textContent = cambio.toFixed(2);
+
+            // Mostrar alerta de pago exitoso
+            alert("Pago exitoso. ¡Gracias por tu compra!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+</head>
+<body>
+    <h1>Formulario de Pago</h1>
+    <form id="tarjeta-form">
+        <p><strong>Total a Pagar: </strong><span id="total"></span> $</p>
+        <label for="tarjeta-numero">Número de tarjeta:</label>
+        <input type="text" id="tarjeta-numero" name="tarjeta-numero" required minlength="16" maxlength="16" placeholder="1234 5678 9876 5432"><br><br>
+
+        <label for="tarjeta-nombre">Nombre en la tarjeta:</label>
+        <input type="text" id="tarjeta-nombre" name="tarjeta-nombre" required><br><br>
+
+        <label for="tarjeta-fecha">Fecha de expiración:</label>
+        <input type="month" id="tarjeta-fecha" name="tarjeta-fecha" required><br><br>
+
+        <label for="tarjeta-cvc">CVC:</label>
+        <input type="text" id="tarjeta-cvc" name="tarjeta-cvc" required minlength="3" maxlength="3" placeholder="123"><br><br>
+
+        <button type="button" onclick="realizarPago()">Pagar</button>
+    </form>
+
+    <script>
+         let total = localStorage.getItem('total');
+         document.getElementById('total').textContent = total;
+        
+        function realizarPago() {
+           
+            let numeroTarjeta = document.getElementById('tarjeta-numero').value;
+            let nombreTarjeta = document.getElementById('tarjeta-nombre').value;
+            let fechaExpiracion = document.getElementById('tarjeta-fecha').value;
+            let cvc = document.getElementById('tarjeta-cvc').value;
+
+           
+            if (!numeroTarjeta || !nombreTarjeta || !fechaExpiracion || !cvc) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+            alert("¡Pago exitoso! Tu pedido ha sido realizado.");
+
+        }
+    </script>
+</body>
+</html>

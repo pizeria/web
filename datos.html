@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Dirección</title>
+</head>
+<body>
+    <h1>Formulario de Dirección</h1>
+    <form id="direccion-form">
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" name="calle" required><br><br>
+
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero" required><br><br>
+
+        <label for="ciudad">Colonia:</label>
+        <input type="text" id="ciudad" name="ciudad" required><br><br>
+
+        <label for="cp">Municipio:</label>
+        <input type="text" id="cp" name="cp" required><br><br>
+
+        <label for="pais">Estado:</label>
+        <input type="text" id="pais" name="pais" required><br><br>
+
+        <button type="button" onclick="guardarDireccion()">ENVIAR PEDIDO</button>
+    </form>
+
+    <script>
+        function guardarDireccion() {
+            
+            let calle = document.getElementById('calle').value;
+            let numero = document.getElementById('numero').value;
+            let ciudad = document.getElementById('ciudad').value;
+            let cp = document.getElementById('cp').value;
+            let pais = document.getElementById('pais').value;
+
+            
+            if (!calle || !numero || !ciudad || !cp || !pais) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            
+            localStorage.setItem('calle', calle);
+            localStorage.setItem('numero', numero);
+            localStorage.setItem('ciudad', ciudad);
+            localStorage.setItem('cp', cp);
+            localStorage.setItem('pais', pais);
+
+        
+            window.location.href = 'envio.html';
+        }
+    </script>
+</body>
+</html>

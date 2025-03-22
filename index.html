@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Pizzas</title>
+</head>
+<body> 
+    
+    <h1>Pedido de Pizzas</h1>  
+    <form id="formulario">
+        <h2>Orden de venta</h2>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required minlength="3" maxlength="15"><br><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <h2>Pedido de Pizzas</h2>
+        <label for="pizza1">Pizza 1:</label>
+        <select id="pizza1" name="pizza1">
+            <option value="Mexicana">Mexicana ($10)</option>
+            <option value="Pepperoni">Pepperoni ($12)</option>
+            <option value="Hawaiana">Hawaiana ($11)</option>
+        </select><br><br>
+
+        <label for="pizza2">Pizza 2:</label>
+        <select id="pizza2" name="pizza2">
+            <option value="Mexicana">Mexicana ($10)</option>
+            <option value="Pepperoni">Pepperoni ($12)</option>
+            <option value="Hawaiana">Hawaiana ($11)</option>
+        </select><br><br>
+
+        <label for="pizza3">Pizza 3:</label>
+        <select id="pizza3" name="pizza3">
+            <option value="Mexicana">Mexicana ($10)</option>
+            <option value="Pepperoni">Pepperoni ($12)</option>
+            <option value="Hawaiana">Hawaiana ($11)</option>
+        </select><br><br>
+
+        <h2>Complementos cada uno $10</h2>
+        <label>Queso Extra</label>
+        <input type="checkbox" id="QuesoExt"><br>
+
+        <label>Refresco</label>
+        <input type="checkbox" id="Refresco"><br>
+
+        <label>Orilla de Queso</label>
+        <input type="checkbox" id="OrQueso"><br>
+
+        <label>Papas</label>
+        <input type="checkbox" id="Papas"><br><br>
+
+        <h2>Método de entrega</h2>
+        <label>Consumo local</label>
+        <input type="radio" name="entrega" value="Consumo local" id="ConsLocal"><br>
+
+        <label>Envío a domicilio</label>
+        <input type="radio" name="entrega" value="Envío a domicilio" id="Envio"><br><br>
+
+        <button type="button" id="boton">Generar Pedido</button>
+        <p id="total"></p>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
